@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 // Pair is to be used in memo below as a dynamic programming technique
 type Pair struct {
 	i int
@@ -11,7 +7,7 @@ type Pair struct {
 }
 
 func isMatch(s string, p string) bool {
-	var memo = map[Pair]bool{}  // declare this globally will cause problems in Leetcode
+	var memo = map[Pair]bool{} // declare this globally will cause problems in Leetcode
 	return dp(0, 0, s, p, memo)
 }
 
@@ -40,7 +36,7 @@ func dp(i, j int, s, p string, memo map[Pair]bool) bool {
 			memo[Pair{i, j}] = ans
 		}
 	} else {
-		// if in memo / !ok 
+		// if in memo / !ok
 		ans = memo[Pair{i, j}]
 	}
 
