@@ -8,10 +8,12 @@ type Pair struct {
 
 func isMatch(s string, p string) bool {
 	var memo = map[Pair]bool{} // declare this globally will cause problems in Leetcode
-	return dp(0, 0, s, p, memo)
+	sr := []rune(s)
+	pr := []rune(p)
+	return dp(0, 0, sr, pr, memo)
 }
 
-func dp(i, j int, s, p string, memo map[Pair]bool) bool {
+func dp(i, j int, s, p []rune, memo map[Pair]bool) bool {
 	var ans bool
 
 	// if (i, j) not in memo
